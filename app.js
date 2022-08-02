@@ -45,16 +45,34 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
             type: "section",
             text: {
               type: "mrkdwn",
-              text: "Lesson list",
+              text: "Lessons list",
             },
             accessory: {
-              type: "multi_conversations_select",
+              type: "multi_static_select",
               placeholder: {
                 type: "plain_text",
-                text: "Select lessons",
+                text: "Select options",
                 emoji: true,
               },
-              action_id: "multi_conversations_select-action",
+              options: [
+                {
+                  text: {
+                    type: "plain_text",
+                    text: "Lessons 1",
+                    emoji: true,
+                  },
+                  value: "1",
+                },
+                {
+                  text: {
+                    type: "plain_text",
+                    text: "Lessons 2",
+                    emoji: true,
+                  },
+                  value: "2",
+                },
+              ],
+              action_id: "multi_static_select-action",
             },
           },
           {
@@ -102,7 +120,6 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
         ],
       },
     });
-    logger.info(result);
   } catch (error) {
     logger.error(error);
   }
