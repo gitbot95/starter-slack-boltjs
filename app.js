@@ -25,46 +25,81 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
       // View payload
       view: {
         type: "modal",
-        // View identifier
-        callback_id: "view_1",
+        submit: {
+          type: "plain_text",
+          text: "Let's Go!",
+          emoji: true,
+        },
+        close: {
+          type: "plain_text",
+          text: ":thinking_face:",
+          emoji: true,
+        },
         title: {
           type: "plain_text",
-          text: "Modal title",
+          text: "Learn new words",
+          emoji: true,
         },
         blocks: [
           {
             type: "section",
             text: {
               type: "mrkdwn",
-              text: "Welcome to a modal with _blocks_",
+              text: "Lesson list",
             },
             accessory: {
-              type: "button",
-              text: {
+              type: "multi_conversations_select",
+              placeholder: {
                 type: "plain_text",
-                text: "Click me!",
+                text: "Select lessons",
+                emoji: true,
               },
-              action_id: "button_abc",
+              action_id: "multi_conversations_select-action",
             },
           },
           {
-            type: "input",
-            block_id: "input_c",
-            label: {
-              type: "plain_text",
-              text: "What are your hopes and dreams?",
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: "Everyday learn",
             },
-            element: {
-              type: "plain_text_input",
-              action_id: "dreamy_input",
-              multiline: true,
+            accessory: {
+              type: "static_select",
+              placeholder: {
+                type: "plain_text",
+                text: "Select an item",
+                emoji: true,
+              },
+              options: [
+                {
+                  text: {
+                    type: "plain_text",
+                    text: "5 words",
+                    emoji: true,
+                  },
+                  value: "5",
+                },
+                {
+                  text: {
+                    type: "plain_text",
+                    text: "10 words",
+                    emoji: true,
+                  },
+                  value: "10",
+                },
+                {
+                  text: {
+                    type: "plain_text",
+                    text: "15 words",
+                    emoji: true,
+                  },
+                  value: "15",
+                },
+              ],
+              action_id: "static_select-action",
             },
           },
         ],
-        submit: {
-          type: "plain_text",
-          text: "Submit",
-        },
       },
     });
     logger.info(result);
