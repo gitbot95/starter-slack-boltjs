@@ -14,6 +14,7 @@ const app = new App({
 });
 
 app.command("/learn", async ({ command, client, ack }) => {
+  console.log("Log");
   try {
     await ack();
     const { profile } = await client.users.profile.get({
