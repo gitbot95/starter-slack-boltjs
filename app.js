@@ -58,18 +58,26 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
                 {
                   text: {
                     type: "plain_text",
-                    text: "Lessons 1",
+                    text: "*this is plain_text text*",
                     emoji: true,
                   },
-                  value: "1",
+                  value: "value-0",
                 },
                 {
                   text: {
                     type: "plain_text",
-                    text: "Lessons 2",
+                    text: "*this is plain_text text*",
                     emoji: true,
                   },
-                  value: "2",
+                  value: "value-1",
+                },
+                {
+                  text: {
+                    type: "plain_text",
+                    text: "*this is plain_text text*",
+                    emoji: true,
+                  },
+                  value: "value-2",
                 },
               ],
               action_id: "multi_static_select-action",
@@ -116,6 +124,39 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
               ],
               action_id: "static_select-action",
             },
+          },
+          {
+            type: "section",
+            text: {
+              type: "plain_text",
+              text: "Select date range",
+              emoji: true,
+            },
+          },
+          {
+            type: "actions",
+            elements: [
+              {
+                type: "datepicker",
+                initial_date: "1990-04-28",
+                placeholder: {
+                  type: "plain_text",
+                  text: "Select a date",
+                  emoji: true,
+                },
+                action_id: "actionId-0",
+              },
+              {
+                type: "datepicker",
+                initial_date: "1990-04-28",
+                placeholder: {
+                  type: "plain_text",
+                  text: "Select a date",
+                  emoji: true,
+                },
+                action_id: "actionId-1",
+              },
+            ],
           },
         ],
       },
