@@ -5,7 +5,7 @@ const receiver = new ExpressReceiver({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
-receiver.router.use("/assets", express.static(__dirname + "/public"));
+receiver.router.use(express.static(__dirname + "/public"));
 
 const app = new App({
   receiver,
