@@ -1,5 +1,6 @@
 const express = require("express");
 const { App, ExpressReceiver } = require("@slack/bolt");
+const { getLessonList } = require("./firebase");
 
 const receiver = new ExpressReceiver({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
@@ -54,32 +55,7 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
                 text: "Select options",
                 emoji: true,
               },
-              options: [
-                {
-                  text: {
-                    type: "plain_text",
-                    text: "*this is plain_text text*",
-                    emoji: true,
-                  },
-                  value: "value-0",
-                },
-                {
-                  text: {
-                    type: "plain_text",
-                    text: "*this is plain_text text*",
-                    emoji: true,
-                  },
-                  value: "value-1",
-                },
-                {
-                  text: {
-                    type: "plain_text",
-                    text: "*this is plain_text text*",
-                    emoji: true,
-                  },
-                  value: "value-2",
-                },
-              ],
+              options: getLessonList(),
               action_id: "multi_static_select-action",
             },
           },
