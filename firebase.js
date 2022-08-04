@@ -53,7 +53,7 @@ getLessonList = async () => {
     ];
   });
 
-  console.log(list);
+  return list;
 };
 
-module.exports = { getLessonList };
+module.exports = getLessonList;
