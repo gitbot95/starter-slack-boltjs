@@ -17,6 +17,13 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 // Initialize Realtime Database and get a reference to the service
 const dbRef = ref(getDatabase(firebaseApp));
+const snakeCase = (str = "") => {
+  const strArr = str.split(" ");
+  const snakeArr = strArr.reduce((acc, val) => {
+    return acc.concat(val.toLowerCase());
+  }, []);
+  return snakeArr.join("_");
+};
 
 getLessonList = async () => {
   list = [];
@@ -49,12 +56,4 @@ getLessonList = async () => {
   console.log(list);
 };
 
-const snakeCase = (str = "") => {
-  const strArr = str.split(" ");
-  const snakeArr = strArr.reduce((acc, val) => {
-    return acc.concat(val.toLowerCase());
-  }, []);
-  return snakeArr.join("_");
-};
-
-export { getLessonList };
+module.exports = { getLessonList };

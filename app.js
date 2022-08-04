@@ -137,6 +137,7 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
         ],
       },
     });
+    logger.info("GOTCHA!");
   } catch (error) {
     logger.error(error);
   }
