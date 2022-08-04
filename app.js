@@ -20,6 +20,7 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
   lists = await getLessonList();
 
   try {
+    console.log(lists);
     // Call views.open with the built-in client
     const result = await client.views.open({
       // Pass a valid trigger_id within 3 seconds of receiving it
