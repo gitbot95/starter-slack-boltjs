@@ -17,6 +17,7 @@ const app = new App({
 app.command("/learn", async ({ ack, body, client, logger }) => {
   // Acknowledge the command request
   await ack();
+  lists = await getLessonList();
 
   try {
     // Call views.open with the built-in client
@@ -55,7 +56,7 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
                 text: "Select options",
                 emoji: true,
               },
-              options: getLessonList(),
+              options: `${lists}`,
               action_id: "multi_static_select-action",
             },
           },
