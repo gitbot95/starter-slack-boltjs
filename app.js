@@ -1,6 +1,6 @@
 const express = require("express");
 const { App, ExpressReceiver } = require("@slack/bolt");
-const { getLessonList } = require("./firebase");
+const getLessonList = require("./firebase");
 
 const receiver = new ExpressReceiver({
   signingSecret: process.env.SLACK_SIGNING_SECRET,

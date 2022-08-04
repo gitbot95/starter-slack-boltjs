@@ -25,7 +25,7 @@ const snakeCase = (str = "") => {
   return snakeArr.join("_");
 };
 
-module.exports = async () => {
+getLessonList = async () => {
   list = [];
   lessons = await get(child(dbRef, `admin`))
     .then((snapshot) => {
@@ -55,3 +55,5 @@ module.exports = async () => {
 
   return list;
 };
+
+module.exports = getLessonList;
