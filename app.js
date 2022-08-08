@@ -57,7 +57,20 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
                 text: "Select options",
                 emoji: true,
               },
-              options: `${lists}`,
+              options: [
+                {
+                  text: { type: "plain_text", text: "Lesson 1", emoji: true },
+                  value: "lesson_1",
+                },
+                {
+                  text: { type: "plain_text", text: "Lesson 2", emoji: true },
+                  value: "lesson_2",
+                },
+                {
+                  text: { type: "plain_text", text: "Lesson 3", emoji: true },
+                  value: "lesson_3",
+                },
+              ],
               action_id: "multi_static_select-action",
             },
           },
