@@ -58,7 +58,7 @@ getLessonList = async () => {
 
 viewModal = async () => {
   const list = await getLessonList();
-  viewGenerated = {
+  const viewGenerated = {
     type: "modal",
     submit: {
       type: "plain_text",
