@@ -1,7 +1,6 @@
 const express = require("express");
 const { App, ExpressReceiver } = require("@slack/bolt");
-const viewModal = require("./firebase");
-
+const modalSlack = require("./modalSlack");
 const receiver = new ExpressReceiver({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
@@ -17,17 +16,16 @@ const app = new App({
 app.command("/learn", async ({ ack, body, client, logger }) => {
   // Acknowledge the command request
   await ack();
-  const modal = await viewModal();
-  console.log(modal);
+  const content = await modalSlack();
   try {
     // Call views.open with the built-in client
     const result = await client.views.open({
       // Pass a valid trigger_id within 3 seconds of receiving it
       trigger_id: body.trigger_id,
       // View payload
-      view: modal,
+      view: content,
     });
-    logger.info("GOTCHA!");
+    logger.info(`${"=".repeat(20)}GOTCHA!${"=".repeat(20)}`);
   } catch (error) {
     logger.error(error);
   }
