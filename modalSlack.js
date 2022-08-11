@@ -3,7 +3,7 @@ const deadline = require("./blocks/deadline");
 
 modalSlack = async () => {
   const bl_lessons = await lessons();
-  const bl_deadline = await deadline();
+  const bl_deadline = deadline;
 
   const viewGenerated = {
     type: "modal",
