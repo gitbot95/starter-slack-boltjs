@@ -17,6 +17,7 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
   // Acknowledge the command request
   await ack();
   const content = await modalSlack();
+  console.log(content);
   try {
     // Call views.open with the built-in client
     const result = await client.views.open({

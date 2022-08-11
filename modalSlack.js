@@ -2,6 +2,9 @@ const lessons = require("./blocks/lessons");
 const deadline = require("./blocks/deadline");
 
 modalSlack = async () => {
+  const bl_lessons = await lessons();
+  const bl_deadline = await deadline();
+
   const viewGenerated = {
     type: "modal",
     submit: {
@@ -20,7 +23,7 @@ modalSlack = async () => {
       emoji: true,
     },
     blocks: [
-      lessons(),
+      bl_lessons,
       {
         type: "section",
         text: {
@@ -63,7 +66,7 @@ modalSlack = async () => {
           action_id: "static_select-action",
         },
       },
-      deadline,
+      bl_deadline,
     ],
   };
   return JSON.stringify(viewGenerated);
