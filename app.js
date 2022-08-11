@@ -23,7 +23,7 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
       // Pass a valid trigger_id within 3 seconds of receiving it
       trigger_id: body.trigger_id,
       // View payload
-      view: viewModal,
+      view: viewModal(),
     });
     logger.info("GOTCHA!");
   } catch (error) {

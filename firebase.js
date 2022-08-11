@@ -170,7 +170,7 @@ viewModal = async () => {
       },
     ],
   };
-  return viewGenerated;
+  return JSON.stringify(viewGenerated);
 };
 
 module.exports = viewModal;
