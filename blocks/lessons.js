@@ -72,7 +72,7 @@ lessons = async () => {
         emoji: true,
       },
       options: list,
-      action_id: "multi_static_select-action",
+      action_id: "lessons-action",
     },
   }
 }
