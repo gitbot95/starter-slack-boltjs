@@ -48,7 +48,7 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
               "text": "Test block with multi static select"
             },
             "accessory": {
-              "type": "multi_static_select",
+              "type": "external_select",
               "placeholder": {
                 "type": "plain_text",
                 "text": "Select options",
