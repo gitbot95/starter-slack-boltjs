@@ -43,28 +43,25 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
         blocks: [
           {
             type: "section",
-            block_id: "b",
             text: {
               type: "mrkdwn",
-              text: "Pick a customer from the dropdown list",
+              text: "Lessons list",
             },
             accessory: {
               type: "multi_static_select",
-              action_id: "lessons-action",
               placeholder: {
                 type: "plain_text",
-                text: "Select a customer",
+                text: "Select options",
+                emoji: true,
               },
-              min_query_length: 0,
-              options: [
-                {
-                  text: {
-                    type: "plain_text",
-                    text: "option 1",
-                  },
-                  value: "value-1",
+              options: {
+                text: {
+                  type: "plain_text",
+                  text: "option 1",
                 },
-              ],
+                value: "value-1",
+              },
+              action_id: "lessons-action",
             },
           },
         ],
