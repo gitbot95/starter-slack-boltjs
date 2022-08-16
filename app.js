@@ -31,9 +31,9 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
   }
 });
 
-app.action("lessons-action", async ({ action, ack, say }) => {
+app.action("lessons-action", async ({ body, ack }) => {
   await ack();
-  await say("hello world");
+  console.log(body);
 });
 
 (async () => {
