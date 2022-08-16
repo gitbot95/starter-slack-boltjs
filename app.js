@@ -42,27 +42,46 @@ app.command("/learn", async ({ ack, body, client, logger }) => {
         },
         blocks: [
           {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: "Lessons list",
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "Test block with multi static select"
             },
-            accessory: {
-              type: "multi_static_select",
-              placeholder: {
-                type: "plain_text",
-                text: "Select options",
-                emoji: true,
+            "accessory": {
+              "type": "multi_static_select",
+              "placeholder": {
+                "type": "plain_text",
+                "text": "Select options",
+                "emoji": true
               },
-              options: {
-                text: {
-                  type: "plain_text",
-                  text: "option 1",
+              "options": [
+                {
+                  "text": {
+                    "type": "plain_text",
+                    "text": "*this is plain_text text*",
+                    "emoji": true
+                  },
+                  "value": "value-0"
                 },
-                value: "value-1",
-              },
-              action_id: "lessons-action",
-            },
+                {
+                  "text": {
+                    "type": "plain_text",
+                    "text": "*this is plain_text text*",
+                    "emoji": true
+                  },
+                  "value": "value-1"
+                },
+                {
+                  "text": {
+                    "type": "plain_text",
+                    "text": "*this is plain_text text*",
+                    "emoji": true
+                  },
+                  "value": "value-2"
+                }
+              ],
+              "action_id": "lessons-action"
+            }
           },
         ],
       },
